@@ -11,3 +11,5 @@ const dbConnect = async () => {
 };
 
 module.exports = dbConnect;
+
+console.log("DATABASE_URL =", process.env.DATABASE_URL);
