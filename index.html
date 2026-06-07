@@ -1015,7 +1015,7 @@
 
     <script>
       // ── State ──────────────────────────────────────────────
-      let API_BASE = localStorage.getItem("todo_api_base") || "";
+      let API_BASE = "https://todoapp-p2im.onrender.com";
       let allTodos = [];
       let editingId = null;
       let deletingId = null;
@@ -1023,23 +1023,15 @@
 
       // ── Init ───────────────────────────────────────────────
       window.addEventListener("DOMContentLoaded", () => {
-        if (API_BASE) {
-          document.getElementById("config-banner").classList.add("hidden");
-          document.getElementById("api-base-input").value = API_BASE;
-          document.getElementById("api-url-display").textContent = API_BASE;
-          fetchTodos();
-        } else {
-          document.getElementById("todos-grid").innerHTML = `
-      <div class="empty-state" style="grid-column:1/-1">
-        <div class="empty-icon">🔌</div>
-        <div class="empty-title">Connect your backend</div>
-        <div class="empty-desc">Enter your API base URL above to get started.</div>
-      </div>`;
-        }
+        document.getElementById("config-banner").classList.add("hidden");
+        document.getElementById("api-url-display").textContent = API_BASE;
+
+        fetchTodos();
 
         document
           .getElementById("search-input")
           .addEventListener("input", renderTodos);
+
         document
           .getElementById("branch-filter")
           .addEventListener("change", (e) => {
