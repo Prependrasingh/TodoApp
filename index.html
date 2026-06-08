@@ -421,7 +421,6 @@
         line-height: 1.6;
         display: -webkit-box;
         -webkit-line-clamp: 3;
-        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -1025,13 +1024,11 @@
       window.addEventListener("DOMContentLoaded", () => {
         document.getElementById("config-banner").classList.add("hidden");
         document.getElementById("api-url-display").textContent = API_BASE;
-
         fetchTodos();
 
         document
           .getElementById("search-input")
           .addEventListener("input", renderTodos);
-
         document
           .getElementById("branch-filter")
           .addEventListener("change", (e) => {
